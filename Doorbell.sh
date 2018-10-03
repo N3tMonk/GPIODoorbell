@@ -18,7 +18,7 @@ if [ ! -d "/sys/class/gpio/gpio$GPIOPin" ]; then
   	echo "Configuring GPIO$GPIOPin."
   	echo "$GPIOPin" > /sys/class/gpio/export
   	echo "$GPIODirection" > /sys/class/gpio/gpio$GPIOPin/direction
-  	echo "$GPIOState" > /sys/class/gpio/gpio$GPIOState/value
+  	echo "$GPIOState" > /sys/class/gpio/gpio$GPIOPin/value
   	echo "GPIO$GPIOPin is now configured. Listening now."
 elif [ -d "/sys/class/gpio/gpio$GPIOPin" ]; then
 	echo "GPIO$GPIOPin already configured. Listening now."
@@ -28,11 +28,11 @@ else
 fi
 
 # Loop for checking the status of the specified GPIO-pin.
-
 while true; do	
 	if [ "$(cat /sys/class/gpio/gpio$GPIOPin/value)" = "0" ]; then
 		echo "There is someone at the door."
 		sleep $SleepTime
+		# You can do anything here.
 	fi
 done
 
