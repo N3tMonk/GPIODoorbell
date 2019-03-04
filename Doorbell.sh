@@ -4,6 +4,7 @@
 # Name		: DoorbellListener
 # Author	: M. Vlaanderen
 # Version	: v1.0 (2018/10/03)
+# License	: MIT
 # =================================================================
 
 # Configure GPIO
